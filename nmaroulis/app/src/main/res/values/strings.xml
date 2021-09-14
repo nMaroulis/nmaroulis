@@ -1,8 +1,10 @@
 <resources>
     <string name="app_name">nmaroulis</string>
     <string name="title_home">Αρχική</string>
-    <string name="title_dashboard">Ανάρτηση</string>
+    <string name="title_post">Ανάρτηση</string>
     <string name="title_notifications">Ειδοποιήσεις</string>
     <string name="title_connections">Δίκτυο</string>
     <string name="title_ads">Αγγελίες</string>
+    <string name="title_profile">Προφίλ</string>
+    <string name="title_chat">Επικοινωνία</string>
 </resources>

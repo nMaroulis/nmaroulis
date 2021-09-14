@@ -12,10 +12,10 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.example.nmaroulis.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:id="@+id/navigation_post"
+        android:name="com.example.nmaroulis.ui.post.PostFragment"
+        android:label="@string/title_post"
+        tools:layout="@layout/fragment_post" />
 
     <fragment
         android:id="@+id/navigation_notifications"
@@ -38,13 +38,13 @@
     <fragment
         android:id="@+id/navigation_profile"
         android:name="com.example.nmaroulis.ui.profile.ProfileFragment"
-        android:label="Προφίλ"
+        android:label="@string/title_profile"
         tools:layout="@layout/fragment_profile" />
 
     <fragment
         android:id="@+id/navigation_chat"
         android:name="com.example.nmaroulis.ui.chat.ChatFragment"
-        android:label="Επικοινωνία"
+        android:label="@string/title_chat"
         tools:layout="@layout/fragment_chat" />
 
 </navigation>
