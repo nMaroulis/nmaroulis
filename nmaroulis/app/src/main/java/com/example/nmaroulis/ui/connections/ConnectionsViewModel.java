@@ -10,10 +10,12 @@ public class ConnectionsViewModel extends ViewModel {
 
     public ConnectionsViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is Connections fragment");
+        mText.setValue("Λίστα Συνδέσεων");
+
     }
 
     public LiveData<String> getText() {
         return mText;
     }
+
 }
