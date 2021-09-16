@@ -13,7 +13,6 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.nmaroulis.ConnectionHelper;
 import com.example.nmaroulis.databinding.FragmentPostBinding;
 
 import java.sql.Connection;
@@ -22,7 +21,6 @@ public class PostFragment extends Fragment {
 
     private PostViewModel postViewModel;
     private FragmentPostBinding binding;
-    Connection connect;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -39,29 +37,6 @@ public class PostFragment extends Fragment {
                 textView.setText(s);
             }
         });
-
-        try {
-            ConnectionHelper connectionHelper = new ConnectionHelper();
-            //connect = connectionHelper.connectionclass();
-
-            if(connect != null){
-                //                String query = "Select * from profile;";
-                //                Statement st = connect.createStatement();
-                //                ResultSet rs = st.executeQuery(query);
-                //while(rs.next()){
-                //    String aa = rs.getString(1);
-                //    Log.e("Value", aa);
-                // mText.setValue(rs.getString(1));
-                //}
-                Log.e("Value", connect.toString());
-            }
-            else {
-                Log.e("Value", "conn null");
-            }
-        } catch(Exception ex) {
-            Log.e("Error", ex.getMessage());
-        }
-
 
         return root;
     }

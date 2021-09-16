@@ -6,7 +6,6 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.example.nmaroulis.ConnectionHelper;
 import com.example.nmaroulis.ui.connections.ConnectionsFragment;
 
 import java.sql.Connection;
