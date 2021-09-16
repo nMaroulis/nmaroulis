@@ -3,20 +3,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@android:color/black"
+    android:background="#fcfcf4"
     android:layout_marginTop="10dp"
+    android:theme="@style/Theme.AppCompat.Light"
     >
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="350dp"
         android:orientation="vertical"
-        android:background="@android:color/background_light"
+        android:background="@drawable/layout_border"
+        android:layout_marginBottom="24dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+
         >
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="220dp"
         android:orientation="horizontal"
         android:background="@color/white"
         android:padding="16dp"
@@ -53,6 +58,10 @@
             android:text="daisjdoas ijdoiasjdo"
             android:textStyle="bold"/>
 
+                    <View
+                        android:layout_width="140dp"
+                        android:layout_height="1dp"
+                        android:background="@color/purple_700"/>
             <TextView
                 android:id="@+id/post_content"
                 android:layout_marginTop="4dp"
@@ -65,48 +74,70 @@
         </LinearLayout>
 
 
-
-
-
     </LinearLayout>
 
+<!--        <View-->
+<!--            android:layout_width="240dp"-->
+<!--            android:layout_height="2dp"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:color="@color/purple_700"-->
+<!--            android:background="@android:color/darker_gray"/>-->
 
-            <LinearLayout
+
+        <LinearLayout
+            android:layout_width="300dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:orientation="horizontal"
+            android:background = "@drawable/layout_like_dislike">
+
+            <ImageView
+                android:id="@+id/post_like"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:contentDescription="post_like"
+                android:paddingTop="1dp"
+                android:paddingBottom="1dp"
+                android:src="@drawable/ic_post_like" />
+
+            <ImageView
+                android:id="@+id/post_dislike"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginLeft="40dp"
+                android:contentDescription="post_dislike"
+                android:paddingTop="1dp"
+                android:paddingRight="1dp"
+                android:paddingBottom="1dp"
+                android:src="@drawable/ic_post_dislike" />
+
+            <TextView
+                android:id="@+id/post_comments"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18dp"
+                android:text="Comments"
+                android:layout_marginLeft="40dp" />
+
+
+        </LinearLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="300dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/post_comment"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                >
+                android:layout_height="wrap_content"
+                android:textColorHighlight="@color/purple_700"
+                android:textColorLink="@color/purple_700"
+                android:hint="Comment..." />
+        </com.google.android.material.textfield.TextInputLayout>
 
-                <ImageView
-                    android:id="@+id/post_like"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="40dp"
-                    android:contentDescription="post_like"
-                    android:paddingTop="1dp"
-                    android:paddingBottom="1dp"
-                    android:src="@drawable/ic_post_like" />
-
-                <ImageView
-                    android:id="@+id/post_dislike"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:contentDescription="post_dislike"
-                    android:paddingTop="1dp"
-                    android:paddingRight="1dp"
-                    android:paddingBottom="1dp"
-                    android:layout_marginLeft="40dp"
-                    android:src="@drawable/ic_post_dislike"/>
-
-                <TextView
-                    android:id="@+id/post_comment"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="16dp"
-                    android:text="Comment"
-                    android:layout_marginLeft="40dp" />
-
-            </LinearLayout>
 
     </LinearLayout>
 

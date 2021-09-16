@@ -19,7 +19,7 @@ public class PostViewModel extends ViewModel {
 
     public PostViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is Post fragment");
+        mText.setValue("Δημιουργία Καινούργιας Ανάρτησης");
     }
 
     public LiveData<String> getText() {
