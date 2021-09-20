@@ -17,6 +17,7 @@ public class User {
     private String gender;
     private List<Post> posts;
     private Title title;
+    private String password;
 
     public int getId() {
         return id;
@@ -106,6 +107,13 @@ public class User {
         this.residence = residence;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
     public String getFullName() {
         return fname + " " + lname;
@@ -134,6 +142,7 @@ public class User {
                 ", fname='" + fname + '\'' +
                 ", lname='" + lname + '\'' +
                 ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
                 ", title=" + title +
                 ", email='" + email + '\'' +
                 ", phone='" + phone + '\'' +

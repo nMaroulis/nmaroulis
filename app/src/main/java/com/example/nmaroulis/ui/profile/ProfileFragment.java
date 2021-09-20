@@ -1,6 +1,7 @@
 package com.example.nmaroulis.ui.profile;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -15,6 +16,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -35,6 +37,9 @@ import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 
+import java.util.HashMap;
+import java.util.Map;
+
 
 public class ProfileFragment extends Fragment {
 
@@ -42,6 +47,7 @@ public class ProfileFragment extends Fragment {
     private FragmentProfileBinding binding;
     private Context cxt;
     private TextView profile_full_name, pTitle, pGender, pEducation, pWork, pPhone, pEmail, pResidense;
+    private String jwt_token;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -61,13 +67,16 @@ public class ProfileFragment extends Fragment {
         pEmail = binding.pEmail;
         pResidense = binding.pLocation;
 
-        //new UserDetailsRequestTask().execute(39);
+        SharedPreferences pref = cxt.getSharedPreferences("User_info", 0);
+        jwt_token = pref.getString("jwt_token", null); // fortwma tou jwt token
+
+        Integer uid = pref.getInt("user_id", -1); // fortwma tou jwt token
 
 
         Gson gson = new Gson();
 
         RequestQueue queue = Volley.newRequestQueue(cxt);
-        String url ="http://10.0.2.2:8080/users/1";
+        String url ="http://10.0.2.2:8080/users/"+uid;
 
         // Request a string response from the provided URL.
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
@@ -86,7 +95,14 @@ public class ProfileFragment extends Fragment {
             public void onErrorResponse(VolleyError error) {
                 Log.d("RES","That didn't work!");
             }
-        });
+        }) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("Authorization", jwt_token);
+                return params;
+            }
+        };
 
         // Add the request to the RequestQueue.
         queue.add(stringRequest);
