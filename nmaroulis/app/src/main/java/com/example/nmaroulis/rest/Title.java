@@ -1,10 +1,6 @@
 package com.example.nmaroulis.rest;
 
-/**
- * Created by ihamod on 12/5/2019.
- */
-
-public class Role {
+public class Title {
 
     private int id;
 

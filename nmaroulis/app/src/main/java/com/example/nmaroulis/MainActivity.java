@@ -2,6 +2,12 @@ package com.example.nmaroulis;
 
 import android.os.Bundle;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.example.nmaroulis.databinding.ToolbarBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -26,10 +32,10 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Objects;
 
+
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
-    Connection connect;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,23 +47,15 @@ public class MainActivity extends AppCompatActivity {
 
         BottomNavigationView navView = findViewById(R.id.nav_view);
 
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-        //AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-         //       R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications)
-         //       .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
-        //NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
-        //Objects.requireNonNull(getSupportActionBar()).hide();
 
         Toolbar toolbar = findViewById(R.id.mytoolbar);
-        //setSupportActionBar(toolbar);
         NavigationUI.setupWithNavController(binding.mytoolbar.toolbar, navController);
         //toolbar.getMenu().clear();
 
-
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

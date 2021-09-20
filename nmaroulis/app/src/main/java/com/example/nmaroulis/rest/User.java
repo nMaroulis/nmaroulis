@@ -1,20 +1,22 @@
 package com.example.nmaroulis.rest;
 
-/**
- * Created by ihamod on 12/5/2019.
- */
+import java.util.List;
 
 public class User {
 
     private int id;
 
     private String fname;
-
     private String lname;
-
     private String username;
-
-    private Role role;
+    private String email;
+    private String phone;
+    private String residence;
+    private String education;
+    private String work;
+    private String gender;
+    private List<Post> posts;
+    private Title title;
 
     public int getId() {
         return id;
@@ -48,12 +50,65 @@ public class User {
         this.username = username;
     }
 
-    public Role getRole() {
-        return role;
+    public Title getTitle() {
+        return title;
     }
 
-    public void setRole(Role role) {
-        this.role = role;
+    public void setTitle(Title title) {
+        this.title = title;
+    }
+
+    public String getEducation() {
+        return education;
+    }
+
+    public void setEducation(String ecucation) {
+        this.education = education;
+    }
+
+    public String getWork() {
+        return work;
+    }
+
+    public void setWork(String work) {
+        this.work = work;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getResidense() {
+        return residence;
+    }
+
+    public void setResidense(String residence) {
+        this.residence = residence;
+    }
+
+
+    public String getFullName() {
+        return fname + " " + lname;
     }
 
     @Override
@@ -79,7 +134,14 @@ public class User {
                 ", fname='" + fname + '\'' +
                 ", lname='" + lname + '\'' +
                 ", username='" + username + '\'' +
-                ", role=" + role +
+                ", title=" + title +
+                ", email='" + email + '\'' +
+                ", phone='" + phone + '\'' +
+                ", residence=" + residence +
+                ", education=" + education +
+                ", work='" + work + '\'' +
+                ", gender='" + gender + '\'' +
+                ", title=" + title +
                 '}';
     }
 }

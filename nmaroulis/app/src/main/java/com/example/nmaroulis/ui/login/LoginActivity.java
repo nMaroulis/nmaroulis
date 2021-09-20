@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
@@ -28,6 +29,7 @@ import com.example.nmaroulis.R;
 import com.example.nmaroulis.ui.login.LoginViewModel;
 import com.example.nmaroulis.ui.login.LoginViewModelFactory;
 import com.example.nmaroulis.databinding.ActivityLoginBinding;
+import com.example.nmaroulis.ui.sign_up.SignUpActivity;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -48,6 +50,8 @@ public class LoginActivity extends AppCompatActivity {
         final EditText passwordEditText = binding.password;
         final Button loginButton = binding.login;
         final ProgressBar loadingProgressBar = binding.loading;
+        final Button signupButton = binding.signup;
+
 
         loginViewModel.getLoginFormState().observe(this, new Observer<LoginFormState>() {
             @Override
@@ -125,6 +129,16 @@ public class LoginActivity extends AppCompatActivity {
                 loadingProgressBar.setVisibility(View.VISIBLE);
                 loginViewModel.login(usernameEditText.getText().toString(),
                         passwordEditText.getText().toString());
+            }
+        });
+
+
+        signupButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this, SignUpActivity.class);
+                startActivity(intent);
+                Log.d("sign up", "success");
             }
         });
     }
