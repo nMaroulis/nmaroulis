@@ -119,6 +119,33 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/su_title" />
 
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/su_gender"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/su_residence"
+        >
+        <RadioButton android:id="@+id/radio_male"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="Male" />
+        <RadioButton android:id="@+id/radio_female"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Female" />
+        <RadioButton android:id="@+id/radio_other"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hidden" />
+    </RadioGroup>
+
+
     <TextView
         android:id="@+id/su_text"
         android:layout_width="0dp"
@@ -130,7 +157,7 @@
         android:text="Οι υπόλοιπες Πληροφορίες μπορούν να συμπληρωθούν απ'το προσωπικό σας Προφίλ"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/su_residence" />
+        app:layout_constraintTop_toBottomOf="@+id/su_gender" />
 
     <Button
         android:id="@+id/su_button"

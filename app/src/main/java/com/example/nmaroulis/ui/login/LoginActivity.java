@@ -110,8 +110,8 @@ public class LoginActivity extends AppCompatActivity {
                 RequestQueue queue = Volley.newRequestQueue(cxt);
                 String url ="http://10.0.2.2:8080/user?user=" + login_user.toString() + "&password=" + login_pass.toString();  // login url
                 HashMap<String, String> login_data = new HashMap();
-                login_data.put("user","nik@gmail.com");
-                login_data.put("password","1234");
+                login_data.put("user",login_user.toString());
+                login_data.put("password",login_pass.toString());
                 JSONObject login_data_json = new JSONObject(login_data);
 
                 JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
