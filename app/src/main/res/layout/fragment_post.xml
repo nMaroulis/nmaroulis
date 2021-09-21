@@ -8,10 +8,10 @@
 
 
     <LinearLayout
-        android:layout_width="409dp"
+        android:layout_width="match_parent"
         android:layout_height="666dp"
         android:layout_marginTop="3dp"
-        android:padding="8dp"
+        android:padding="28dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -35,17 +35,20 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="60dp">
+            android:layout_height="60dp"
+            android:id="@+id/new_post_title">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Τίτλος" />
+                android:hint="Τίτλος"
+                />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="300dp">
+                android:layout_height="300dp"
+                android:id="@+id/new_post_body">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
@@ -67,7 +70,7 @@
         android:layout_gravity="center">
 
         <Switch
-            android:id="@+id/switch2"
+            android:id="@+id/post_public_switch"
             android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
@@ -85,7 +88,6 @@
             android:id="@+id/post_add_music_button"
             android:layout_width="40dp"
             android:layout_marginLeft="20dp"
-
             android:layout_height="wrap_content"
             android:src="@android:drawable/ic_lock_silent_mode_off" />
 
@@ -97,9 +99,18 @@
             android:id="@+id/post_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/purple_700"
+            android:textColor="@color/white"
             android:text="Ανάρτηση" />
 
-
+        <Button
+            android:id="@+id/my_posts_button"
+            android:layout_width="160dp"
+            android:layout_height="40dp"
+            android:background="@color/teal_200"
+            android:textColor="@color/white"
+            android:layout_marginTop="15dp"
+            android:text="Οι Αναρτήσεις μου" />
     </LinearLayout>
 
 

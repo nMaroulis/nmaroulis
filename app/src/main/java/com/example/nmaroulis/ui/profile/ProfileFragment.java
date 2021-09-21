@@ -46,7 +46,7 @@ public class ProfileFragment extends Fragment {
     private ProfileViewModel profileViewModel;
     private FragmentProfileBinding binding;
     private Context cxt;
-    private TextView profile_full_name, pTitle, pGender, pEducation, pWork, pPhone, pEmail, pResidense;
+    private TextView profile_full_name, pTitle, pGender, pEducation, pWork, pPhone, pEmail, pResidense, pMember;
     private String jwt_token;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -66,11 +66,12 @@ public class ProfileFragment extends Fragment {
         pPhone = binding.pPhone;
         pEmail = binding.pEmail;
         pResidense = binding.pLocation;
+        pMember = binding.pMember;
 
         SharedPreferences pref = cxt.getSharedPreferences("User_info", 0);
         jwt_token = pref.getString("jwt_token", null); // fortwma tou jwt token
 
-        Integer uid = pref.getInt("user_id", -1); // fortwma tou jwt token
+        Integer uid = pref.getInt("user_id", -1); // fortwma tou user id
 
 
         Gson gson = new Gson();
@@ -127,7 +128,7 @@ public class ProfileFragment extends Fragment {
         pPhone.setText(user.getPhone());
         pEmail.setText(user.getEmail());
         pResidense.setText(user.getResidense());
-
+        pMember.setText(user.getMembersince());
     }
 
 }

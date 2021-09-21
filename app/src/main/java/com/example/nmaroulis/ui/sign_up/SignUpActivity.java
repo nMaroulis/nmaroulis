@@ -81,7 +81,7 @@ public class SignUpActivity extends AppCompatActivity {
                 RequestQueue queue = Volley.newRequestQueue(cxt);
                 String g;
                 Integer gc = gender.getCheckedRadioButtonId();
-                
+
                 if (gc.equals(male_button.getId())){
                     g = "Male";
                 }
@@ -140,9 +140,6 @@ public class SignUpActivity extends AppCompatActivity {
                 };
 
                 queue.add(jsonObjectRequest);   // Add the request to the RequestQueue.
-
-
-
 
 
             }

@@ -18,6 +18,7 @@ public class User {
     private List<Post> posts;
     private Title title;
     private String password;
+    private String member_since;
 
     public int getId() {
         return id;
@@ -119,6 +120,14 @@ public class User {
         return fname + " " + lname;
     }
 
+    public String getMembersince() {
+        return member_since;
+    }
+
+    public void setMembersince(String member_since) {
+        this.member_since = member_since;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -151,6 +160,8 @@ public class User {
                 ", work='" + work + '\'' +
                 ", gender='" + gender + '\'' +
                 ", title=" + title +
+                ", member_since=" + member_since +
+
                 '}';
     }
 }

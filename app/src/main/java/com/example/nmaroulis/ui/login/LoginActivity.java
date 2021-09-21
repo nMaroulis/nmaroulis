@@ -137,10 +137,6 @@ public class LoginActivity extends AppCompatActivity {
 
                                 editor.apply(); // commit changes
 
-
-
-
-
                                 Intent intent = new Intent(LoginActivity.this, MainActivity.class); // fortwnei to Main
                                 startActivity(intent);
 
