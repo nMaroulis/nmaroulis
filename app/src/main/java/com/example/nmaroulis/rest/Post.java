@@ -8,7 +8,8 @@ public class Post {
     private String title;
     private String body;
     private Boolean accesibility;
-
+    private User user;
+    private Image image;
 
     public int getId() {
         return id;

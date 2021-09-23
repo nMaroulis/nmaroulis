@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#fcfcf4"
+    android:layout_marginTop="10dp"
+    android:theme="@style/Theme.AppCompat.Light"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:orientation="vertical"
+        android:background="@drawable/layout_border"
+        android:layout_marginBottom="24dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            android:orientation="horizontal"
+            android:background="@color/white"
+            android:padding="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="16dp"
+            android:layout_marginLeft="16dp"
+            >
+
+            <ImageView
+                android:id="@+id/my_post_flag"
+                android:src="@drawable/ic_post_icon"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:contentDescription="post_flag"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5dp"
+                />
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="15dp"
+                >
+
+                <TextView
+                    android:id="@+id/my_post_profile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:text="daisjdoas ijdoiasjdo"
+                    android:textStyle="bold"/>
+
+                <View
+                    android:layout_width="140dp"
+                    android:layout_height="1dp"
+                    android:background="@color/purple_700"/>
+                <TextView
+                    android:id="@+id/my_post_content"
+                    android:layout_marginTop="4dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="daisjdoas ijdoias sdad jasdhkjsad hkjasdhkjsa hsad asodjas ldj lksjd jdo"
+                    android:textSize="16sp" />
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="300dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:orientation="horizontal"
+            android:background = "@drawable/layout_like_dislike">
+
+            <TextView
+                android:id="@+id/my_post_like_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="post_like"
+                android:layout_marginLeft="35dp"
+                android:text="0"
+                android:textSize="15dp"
+                android:paddingTop="1dp"
+                android:paddingBottom="1dp"
+                android:src="@drawable/ic_post_like" />
+
+            <ImageView
+                android:id="@+id/my_post_like"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="post_like"
+                android:layout_marginLeft="3dp"
+                android:paddingTop="1dp"
+                android:paddingBottom="1dp"
+                android:src="@drawable/ic_post_like" />
+
+            <TextView
+                android:id="@+id/my_post_dislike_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="post_like"
+                android:layout_marginLeft="40dp"
+                android:text="0"
+                android:textSize="15dp"
+                android:paddingTop="1dp"
+                android:paddingBottom="1dp"
+                android:src="@drawable/ic_post_like" />
+            <ImageView
+                android:id="@+id/my_post_dislike"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginLeft="3dp"
+                android:contentDescription="post_dislike"
+                android:paddingTop="1dp"
+                android:paddingRight="1dp"
+                android:paddingBottom="1dp"
+                android:src="@drawable/ic_post_dislike" />
+
+            <TextView
+                android:id="@+id/my_post_comments_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="post_like"
+                android:layout_marginLeft="40dp"
+                android:text="0"
+                android:textSize="15dp"
+                android:paddingTop="1dp"
+                android:paddingBottom="1dp"
+                android:src="@drawable/ic_post_like" />
+            <TextView
+                android:id="@+id/my_post_comments"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18dp"
+                android:text="Σχόλια"
+                android:layout_marginLeft="3dp" />
+
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -134,7 +134,7 @@ public class LoginActivity extends AppCompatActivity {
                                 SharedPreferences.Editor editor = pref.edit();
                                 editor.putString("jwt_token",u.getPassword() ); // Storing string
                                 editor.putInt("user_id",u.getId() );
-
+                                editor.putString("user_full_name", u.getFullName());
                                 editor.apply(); // commit changes
 
                                 Intent intent = new Intent(LoginActivity.this, MainActivity.class); // fortwnei to Main

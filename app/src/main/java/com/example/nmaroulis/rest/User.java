@@ -19,6 +19,7 @@ public class User {
     private Title title;
     private String password;
     private String member_since;
+    private List<User> connections;
 
     public int getId() {
         return id;
@@ -127,6 +128,11 @@ public class User {
     public void setMembersince(String member_since) {
         this.member_since = member_since;
     }
+
+    public List<User> getConnections() {
+        return connections;
+    }
+
 
     @Override
     public boolean equals(Object o) {

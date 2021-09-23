@@ -103,14 +103,12 @@
             android:textColor="@color/white"
             android:text="Ανάρτηση" />
 
-        <Button
+        <TextView
             android:id="@+id/my_posts_button"
-            android:layout_width="160dp"
-            android:layout_height="40dp"
-            android:background="@color/teal_200"
-            android:textColor="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:text="Οι Αναρτήσεις μου" />
+            android:text="Τις Δημοσιευμένες αναρτήσεις σας μπορείτε να τις βρείτε στο Προφίλ σας" />
     </LinearLayout>
 
 

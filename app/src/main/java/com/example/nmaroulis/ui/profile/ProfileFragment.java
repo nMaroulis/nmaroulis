@@ -8,6 +8,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
+import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -27,17 +29,23 @@ import com.example.nmaroulis.MainActivity;
 import com.example.nmaroulis.R;
 import com.example.nmaroulis.databinding.FragmentProfileBinding;
 
+import com.example.nmaroulis.rest.Post;
 import com.example.nmaroulis.rest.User;
 
 import org.json.JSONArray;
+import org.json.JSONObject;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 
@@ -72,12 +80,12 @@ public class ProfileFragment extends Fragment {
         jwt_token = pref.getString("jwt_token", null); // fortwma tou jwt token
 
         Integer uid = pref.getInt("user_id", -1); // fortwma tou user id
-
+        String full_name = pref.getString("user_full_name", null);
 
         Gson gson = new Gson();
 
         RequestQueue queue = Volley.newRequestQueue(cxt);
-        String url ="http://10.0.2.2:8080/users/"+uid;
+        String url ="http://10.0.2.2:8080/users/"+uid.toString();
 
         // Request a string response from the provided URL.
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
@@ -109,6 +117,13 @@ public class ProfileFragment extends Fragment {
         queue.add(stringRequest);
 
 
+        fillProfilePosts(uid,full_name, root);
+
+//        String[] post_profile = { "Fabian sad", "Carlos dsad", "Alexd dasd asd", "Andrea dasdas", "Karla aaa",
+//                "Freddy", "Lazaro"};
+//        String[] post_content = { "Programmer", "Data Scientist", "Doctor", "Dddd", "Pez",
+//                "Nicuro", "Bocachico" };
+
         return root;
     }
 
@@ -116,6 +131,61 @@ public class ProfileFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
+    }
+
+    public void fillProfilePosts(Integer uid, String full_name, View root){
+        Gson gson = new Gson();
+
+        RequestQueue queue = Volley.newRequestQueue(cxt);
+        String url ="http://10.0.2.2:8080/users/"+uid.toString()+"/posts";
+
+        // Request a string response from the provided URL.
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                new com.android.volley.Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+
+                        Post[] posts = gson.fromJson(response, Post[].class);
+
+                        Log.d("fillProfilePosts","Response success ");
+
+                        int prof_icon = R.drawable.ic_post_icon;
+
+                        if(posts.length > 0 ) {
+                            List<HashMap<String, String>> postList = new ArrayList<HashMap<String, String>>();
+                            for (int i = 0; i < posts.length; i++) {
+                                HashMap<String, String> hm = new HashMap<String, String>();
+                                hm.put("my_post_profile", full_name);
+                                hm.put("my_post_content", posts[i].getTitle());
+                                hm.put("my_post_flag", Integer.toString(prof_icon));
+                                postList.add(hm);
+                            }
+                            String[] from = {"my_post_flag", "my_post_profile", "my_post_content"};
+                            int[] to = {R.id.my_post_flag, R.id.my_post_profile, R.id.my_post_content};
+
+                            ListView list = (ListView) root.findViewById(R.id.postlistView);
+                            SimpleAdapter adapter = new SimpleAdapter(getActivity().getBaseContext(), postList, R.layout.list_my_posts, from, to);
+                            list.setAdapter(adapter);
+
+                        }else{
+                            Log.d("fillProfilePosts","empty posts: ");
+                        }
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.d("RES fillProfilePosts ::","That didn't work!");
+            }
+        }) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("Authorization", jwt_token);
+                return params;
+            }
+        };
+        // Add the request to the RequestQueue.
+        queue.add(stringRequest);
     }
 
 

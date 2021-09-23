@@ -59,7 +59,6 @@ public class PostFragment extends Fragment {
         post_title = binding.newPostTitle;
         post_body = binding.newPostBody;
         new_post = binding.postButton;
-        my_posts = binding.myPostsButton;
         public_switch = binding.postPublicSwitch;
 
         cxt = this.getContext();
