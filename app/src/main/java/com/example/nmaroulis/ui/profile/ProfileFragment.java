@@ -59,6 +59,7 @@ public class ProfileFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
+
         profileViewModel =
                 new ViewModelProvider(this).get(ProfileViewModel.class);
 
@@ -158,10 +159,11 @@ public class ProfileFragment extends Fragment {
                                 hm.put("my_post_profile", full_name);
                                 hm.put("my_post_content", posts[i].getTitle());
                                 hm.put("my_post_flag", Integer.toString(prof_icon));
+                                hm.put("my_post_date", posts[i].getTime_posted());
                                 postList.add(hm);
                             }
-                            String[] from = {"my_post_flag", "my_post_profile", "my_post_content"};
-                            int[] to = {R.id.my_post_flag, R.id.my_post_profile, R.id.my_post_content};
+                            String[] from = {"my_post_flag", "my_post_profile", "my_post_content", "my_post_date"};
+                            int[] to = {R.id.my_post_flag, R.id.my_post_profile, R.id.my_post_content, R.id.my_post_date};
 
                             ListView list = (ListView) root.findViewById(R.id.postlistView);
                             SimpleAdapter adapter = new SimpleAdapter(getActivity().getBaseContext(), postList, R.layout.list_my_posts, from, to);

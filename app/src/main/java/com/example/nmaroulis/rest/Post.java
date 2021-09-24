@@ -8,6 +8,7 @@ public class Post {
     private String title;
     private String body;
     private Boolean accesibility;
+    private String time_posted;
     private User user;
     private Image image;
 
@@ -42,5 +43,14 @@ public class Post {
     public void setAccesibility(Boolean accesibility) {
         this.accesibility = accesibility;
     }
+
+    public String getTime_posted() {
+        return time_posted;
+    }
+
+    public void setTime_posted(String time_posted) {
+        this.time_posted = time_posted;
+    }
+
 
 }

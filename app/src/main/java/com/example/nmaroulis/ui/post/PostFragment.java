@@ -3,6 +3,7 @@ package com.example.nmaroulis.ui.post;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -15,6 +16,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -33,9 +35,10 @@ import com.google.android.material.textfield.TextInputLayout;
 
 import org.json.JSONObject;
 
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
-
+import java.time.LocalDateTime;
 
 public class PostFragment extends Fragment {
 
@@ -50,6 +53,7 @@ public class PostFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
+
         postViewModel =
                 new ViewModelProvider(this).get(PostViewModel.class);
 
@@ -79,6 +83,7 @@ public class PostFragment extends Fragment {
 
 
         new_post.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View v) {
 
@@ -91,13 +96,19 @@ public class PostFragment extends Fragment {
                 }else{
                     g = "false";
                 }
+
+                DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+                LocalDateTime now = LocalDateTime.now();
+                String time_posted = dtf.format(now); // pros8etei to pote egine to signup
+
                 String url ="http://10.0.2.2:8080/users/" + uid.toString() + "/posts?title=" + post_title.getEditText().getText().toString() +
                         "&body=" + post_body.getEditText().getText().toString() +
-                        "&accesibility=" + g;  // new post url
+                        "&accesibility=" + g + "&time_posted=" + time_posted;  // new post url
 
                 HashMap<String, String> newpost_data = new HashMap();
                 newpost_data.put("title",post_title.getEditText().getText().toString());
                 newpost_data.put("body",post_body.getEditText().getText().toString());
+                newpost_data.put("time_posted",time_posted);
                 newpost_data.put("accesibility",g);
                 JSONObject newpost_data_json = new JSONObject(newpost_data);
                 JsonObjectRequest jsonObjectRequest = new JsonObjectRequest

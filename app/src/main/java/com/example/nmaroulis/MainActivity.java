@@ -9,10 +9,13 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.nmaroulis.databinding.ToolbarBinding;
+import com.example.nmaroulis.ui.profile.ProfileFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -52,7 +55,24 @@ public class MainActivity extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.mytoolbar);
         NavigationUI.setupWithNavController(binding.mytoolbar.toolbar, navController);
+        //toolbar.hasOnClickListeners();
         //toolbar.getMenu().clear();
+
+        toolbar.getMenu().getItem(0).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem menuItem) {
+               Log.d("New Pofdgdfst ::","Response is: ");
+
+//                FragmentManager fragmentManager = getSupportFragmentManager();
+//                fragmentManager.beginTransaction()
+//                        .replace(R.id.nav_host_fragment_container, ProfileFragment.class, null)
+//                        //.setReorderingAllowed(true)
+//                        .commit();
+
+                return false;
+            }
+        });
+
 
     }
 
@@ -65,6 +85,7 @@ public class MainActivity extends AppCompatActivity {
 
         return true;
     }
+
 
 
 }

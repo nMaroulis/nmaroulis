@@ -21,6 +21,11 @@ public class AdsFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
+
+//        if (container != null) {
+//            container.removeAllViews();
+//        }
+
        adsViewModel =
                 new ViewModelProvider(this).get(AdsViewModel.class);
 

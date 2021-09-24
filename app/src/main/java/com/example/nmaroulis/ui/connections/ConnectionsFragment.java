@@ -37,6 +37,7 @@ import com.google.gson.Gson;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -59,8 +60,12 @@ public class ConnectionsFragment extends Fragment {
 
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        connectionsViewModel = new ViewModelProvider(this).get(ConnectionsViewModel.class);
 
+//        if (container != null) {
+//            container.removeAllViews();
+//        }
+
+        connectionsViewModel = new ViewModelProvider(this).get(ConnectionsViewModel.class);
         binding = FragmentConnectionsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
         cxt = this.getContext();
@@ -161,7 +166,7 @@ public class ConnectionsFragment extends Fragment {
 
         RequestQueue queue = Volley.newRequestQueue(cxt);
         Gson gson = new Gson();
-        String url ="http://10.0.2.2:8080/user/" + uid.toString() + "/requests";  // new post url
+        String url ="http://10.0.2.2:8080/user/" + uid.toString() + "/responses";  // new post url
 
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
                 new com.android.volley.Response.Listener<String>() {
@@ -171,21 +176,10 @@ public class ConnectionsFragment extends Fragment {
                         pending_connections = gson.fromJson(response, User[].class);
                         Log.d("Pending :: User","Response is: "+ response.toString());
 
-                        List<HashMap<String,String>> friendsList = new ArrayList<HashMap<String,String>>();
-                        for(int i=0;i<pending_connections.length;i++){
-                            HashMap<String, String> hm = new HashMap<String,String>();
-                            hm.put("clp_txt", pending_connections[i].getFullName());
-                            hm.put("clp_cur","Επαγγελματική θέση: " + pending_connections[i].getTitle().getName());
-                            hm.put("clp_con_work","Φορέας Απασχόλησης: " + pending_connections[i].getWork());
-                            hm.put("clp_flag", Integer.toString(prof_icon) );
-                            friendsList.add(hm);
-                        }
-                        String[] from = { "clp_flag","clp_txt","clp_cur","clp_con_work" };
-                        int[] to = { R.id.clp_flag,R.id.clp_txt,R.id.clp_cur, R.id.clp_con_work};
-
+                        ArrayList<User> pending_connections_list =  new ArrayList<>(Arrays.asList(pending_connections));
+                        ConnectionsCustomAdapter connectionsCustomAdapter = new ConnectionsCustomAdapter(cxt,pending_connections_list);
                         ListView list = (ListView)root.findViewById(R.id.pendinglistView);
-                        SimpleAdapter adapter = new SimpleAdapter(getActivity().getBaseContext(), friendsList, R.layout.connections_list_pending, from, to);
-                        list.setAdapter(adapter);
+                        list.setAdapter(connectionsCustomAdapter);
                     }
                 }, new Response.ErrorListener() {
             @Override
@@ -206,10 +200,9 @@ public class ConnectionsFragment extends Fragment {
 
     public void getProfileRequests(String jwt_token, Integer uid, View root){
 
-        /*  GET CONNECTIONS */
         RequestQueue queue = Volley.newRequestQueue(cxt);
         Gson gson = new Gson();
-        String url ="http://10.0.2.2:8080/user/" + uid.toString() + "/responses";  // new post url
+        String url ="http://10.0.2.2:8080/user/" + uid.toString() + "/requests";  // new post url
 
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
                 new com.android.volley.Response.Listener<String>() {

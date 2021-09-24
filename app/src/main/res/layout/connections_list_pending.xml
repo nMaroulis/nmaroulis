@@ -6,9 +6,10 @@
 
     <ImageView
         android:id="@+id/clp_flag"
+        android:src="@drawable/ic_friend_black_24dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:contentDescription="Profile"
+        android:contentDescription="ic_friend_black_24dp"
         android:paddingTop="10dp"
         android:paddingRight="10dp"
         android:paddingBottom="10dp" />
@@ -37,6 +38,7 @@
             android:textSize="14dp" />
 
         <Button
+            android:id="@+id/accept_con"
             android:layout_width="100dp"
             android:layout_height="25dp"
             android:layout_marginTop="4dp"

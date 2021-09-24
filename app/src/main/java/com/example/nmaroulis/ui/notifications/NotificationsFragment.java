@@ -22,6 +22,11 @@ public class NotificationsFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
+
+//        if (container != null) {
+//            container.removeAllViews();
+//        }
+
         notificationsViewModel =
                 new ViewModelProvider(this).get(NotificationsViewModel.class);
 

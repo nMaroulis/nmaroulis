@@ -82,7 +82,18 @@
 <!--            android:layout_gravity="center"-->
 <!--            android:color="@color/purple_700"-->
 <!--            android:background="@android:color/darker_gray"/>-->
-
+        <TextView
+            android:id="@+id/post_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginRight="55dp"
+            android:layout_marginBottom="4dp"
+            android:text="Date Posted:"
+            android:textSize="15dp"
+            android:paddingTop="1dp"
+            android:paddingBottom="1dp"
+            android:src="@drawable/ic_post_like" />
 
         <LinearLayout
             android:layout_width="300dp"
