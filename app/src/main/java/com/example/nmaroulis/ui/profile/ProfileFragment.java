@@ -1,6 +1,7 @@
 package com.example.nmaroulis.ui.profile;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -8,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
@@ -39,6 +41,8 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.Volley;
+import com.example.nmaroulis.ui.login.LoginActivity;
+import com.example.nmaroulis.ui.sign_up.SignUpActivity;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
@@ -56,6 +60,7 @@ public class ProfileFragment extends Fragment {
     private Context cxt;
     private TextView profile_full_name, pTitle, pGender, pEducation, pWork, pPhone, pEmail, pResidense, pMember;
     private String jwt_token;
+    private ImageView sign_out_button;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -76,6 +81,7 @@ public class ProfileFragment extends Fragment {
         pEmail = binding.pEmail;
         pResidense = binding.pLocation;
         pMember = binding.pMember;
+        sign_out_button = binding.signOut;
 
         SharedPreferences pref = cxt.getSharedPreferences("User_info", 0);
         jwt_token = pref.getString("jwt_token", null); // fortwma tou jwt token
@@ -120,10 +126,16 @@ public class ProfileFragment extends Fragment {
 
         fillProfilePosts(uid,full_name, root);
 
-//        String[] post_profile = { "Fabian sad", "Carlos dsad", "Alexd dasd asd", "Andrea dasdas", "Karla aaa",
-//                "Freddy", "Lazaro"};
-//        String[] post_content = { "Programmer", "Data Scientist", "Doctor", "Dddd", "Pez",
-//                "Nicuro", "Bocachico" };
+
+        sign_out_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), LoginActivity.class);
+                startActivity(intent);
+                getActivity().finish();
+                Log.d("sign out", "success");
+            }
+        });
 
         return root;
     }
@@ -202,6 +214,7 @@ public class ProfileFragment extends Fragment {
         pResidense.setText(user.getResidense());
         pMember.setText(user.getMembersince());
     }
+
 
 }
 

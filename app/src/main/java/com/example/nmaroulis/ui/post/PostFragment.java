@@ -101,8 +101,12 @@ public class PostFragment extends Fragment {
                 LocalDateTime now = LocalDateTime.now();
                 String time_posted = dtf.format(now); // pros8etei to pote egine to signup
 
-                String url ="http://10.0.2.2:8080/users/" + uid.toString() + "/posts?title=" + post_title.getEditText().getText().toString() +
-                        "&body=" + post_body.getEditText().getText().toString() +
+                SharedPreferences pref = cxt.getSharedPreferences("User_info", 0);
+                String full_name = pref.getString("user_full_name", null); // fortwma tou jwt token
+
+
+                String url ="http://10.0.2.2:8080/users/" + uid.toString() + "/posts?title=" + full_name+//post_title.getEditText().getText().toString() +
+                        "&body=" + post_title.getEditText().getText().toString() + " " + post_body.getEditText().getText().toString() +
                         "&accesibility=" + g + "&time_posted=" + time_posted;  // new post url
 
                 HashMap<String, String> newpost_data = new HashMap();

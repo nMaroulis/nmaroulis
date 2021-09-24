@@ -61,10 +61,6 @@ public class ConnectionsFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-//        if (container != null) {
-//            container.removeAllViews();
-//        }
-
         connectionsViewModel = new ViewModelProvider(this).get(ConnectionsViewModel.class);
         binding = FragmentConnectionsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();

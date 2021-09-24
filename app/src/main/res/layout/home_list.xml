@@ -108,6 +108,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="40dp"
                 android:contentDescription="post_like"
+                android:clickable="true"
+                android:focusable="true"
                 android:paddingTop="1dp"
                 android:paddingBottom="1dp"
                 android:src="@drawable/ic_post_like" />
@@ -118,6 +120,8 @@
                 android:layout_height="24dp"
                 android:layout_marginLeft="40dp"
                 android:contentDescription="post_dislike"
+                android:clickable="true"
+                android:focusable="true"
                 android:paddingTop="1dp"
                 android:paddingRight="1dp"
                 android:paddingBottom="1dp"
@@ -127,6 +131,8 @@
                 android:id="@+id/post_comments"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
                 android:textSize="18dp"
                 android:text="Σχόλια"
                 android:layout_marginLeft="40dp" />

@@ -51,6 +51,18 @@ xmlns:tools="http://schemas.android.com/tools"
         android:elevation="4dp"
         android:paddingBottom="24dp">
 
+        <ImageView
+            android:id="@+id/sign_out"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="16dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:src="@android:drawable/ic_menu_set_as"
+            app:srcCompat="@android:drawable/ic_menu_set_as" />
 
         <ImageView
             android:id="@+id/edit"
