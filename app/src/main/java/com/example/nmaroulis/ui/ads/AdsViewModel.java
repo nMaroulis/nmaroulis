@@ -10,7 +10,7 @@ public class AdsViewModel extends ViewModel {
 
     public AdsViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is Ads fragment");
+        mText.setValue("Δημιουργία Αγγελίας");
     }
 
     public LiveData<String> getText() {

@@ -46,11 +46,6 @@ public class HomeFragment extends Fragment {
     private Integer uid;
     private Post[] timeline_posts;
 
-    private String[] post_profile = { "Fabian sad", "Carlos dsad", "Alexd dasd asd", "Andrea dasdas", "Karla aaa",
-            "Freddy", "Lazaro"};
-    private String[] post_content = { "Programmer", "Data Scientist", "Doctor", "Dddd", "Pez",
-            "Nicuro", "Bocachico" };
-    int prof_icon = R.drawable.ic_post_icon;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
