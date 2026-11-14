@@ -13,21 +13,17 @@
     <br><br>
     - <strong>Sibyl</strong>: An AI-powered crypto insights & trading dashboard built around an agentic framework powered by Protolink. Connect your crypto exchanges, deploy strategies, get advanced crypto analysis and news, all locally, with decrypted locally stored credentials and all powered by Prolink AI agents.
     <br><br>
-    Check it out 👇👇.
+    Check them out 👇👇.
   </samp>
 </p>
 
-<table align="center" style="border: none; border-collapse: collapse;">
-  <tr style="border: none;">
-    <td align="center" valign="middle" style="border: none; padding: 10px 25px;">
-      <a href="https://github.com/nMaroulis/protolink">
-        <img src="https://raw.githubusercontent.com/nMaroulis/protolink/main/docs/assets/banner.png" width="190" alt="Protolink">
-      </a>
-    </td>
-    <td align="center" valign="middle" style="border: none; padding: 10px 25px;">
-      <a href="https://github.com/nMaroulis/sibyl">
-        <img src="https://raw.githubusercontent.com/nMaroulis/sibyl/main/assets/logo_transparent.png" width="80" alt="Sibyl">
-      </a>
-    </td>
-  </tr>
-</table>
+<p align="center">
+  <a href="https://github.com/nMaroulis/protolink">
+    <img src="https://raw.githubusercontent.com/nMaroulis/protolink/main/docs/assets/banner.png" height="92" alt="Protolink" align="middle"/>
+  </a>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <a href="https://github.com/nMaroulis/sibyl">
+    <img src="https://raw.githubusercontent.com/nMaroulis/sibyl/main/assets/logo_transparent.png" height="48" alt="Sibyl" align="middle"/>
+  </a>
+</p>
+
