@@ -11,6 +11,8 @@
     <br>
     - <strong>ProtoAgent ACP</strong>: A Python-based server that brings Protolink's orchestration natively into your favorite code editors (like Zed and JetBrains) via the Agent Client Protocol.
     <br><br>
+    <span style="font-size: 1.1em; font-weight: bold; background: linear-gradient(90deg, #8B5CF6, #06B6D4); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">✦ Sibyl</span> — An AI-powered crypto insights & trading dashboard built around an agentic framework powered by Protolink.
+    <br><br>
     Check it out 👇👇.
   </samp>
 </p>
